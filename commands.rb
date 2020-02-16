@@ -23,7 +23,7 @@ class Commands
     return message.split(" ", 2)
   end
 
-  #test dsfsdfsdfdsfsd
+  #test
   def parse(author, message)
     puts @commands.class
     parts = parts(strip_prefix(message))
