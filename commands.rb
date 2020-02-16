@@ -24,11 +24,9 @@ class Commands
   end
 
   def parse(author, message)
-    puts @commands.class
     parts = parts(strip_prefix(message))
     command = parts[0].chomp
     args = parts[1]
-    puts command
     if @commands.has_key? command
       unless @commands[command][0]
         return @commands[command][1].(author)
