@@ -7,7 +7,7 @@ class Commands
     return "nope"
   end
 
-  def initialize(prefix = "!")
+  def initialize(prefix)
     @prefix = prefix
     @commands = {
       "test1" => [true, method(:test1)],
