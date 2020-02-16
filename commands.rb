@@ -1,9 +1,9 @@
 class Commands
-  def test1(input)
+  def test1(author, input)
     return "input was #{input}"
   end
 
-  def test2
+  def test2(author)
     return "nope"
   end
 
@@ -23,7 +23,6 @@ class Commands
     return message.split(" ", 2)
   end
 
-  #test
   def parse(author, message)
     puts @commands.class
     parts = parts(strip_prefix(message))
@@ -32,10 +31,10 @@ class Commands
     puts command
     if @commands.has_key? command
       unless @commands[command][0]
-        return @commands[command][1].()
+        return @commands[command][1].(author)
       else
         if args && !args.chomp.empty?
-          return @commands[command][1].(args)
+          return @commands[command][1].(author, args)
         else
           return "Command \"#{command}\" requires arguments."
         end
